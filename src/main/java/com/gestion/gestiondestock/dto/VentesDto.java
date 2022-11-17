@@ -7,6 +7,7 @@ import java.time.Instant;
 @Data
 @Builder
 public class VentesDto {
+    Integer Id ;
     String code;
     Instant dateVente;
     String commentaire;

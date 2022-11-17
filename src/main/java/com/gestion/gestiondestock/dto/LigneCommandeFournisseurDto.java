@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 @Builder
 @Data
 public class LigneCommandeFournisseurDto {
+    Integer Id ;
     BigDecimal quantity ;
     BigDecimal prixUnitaire ;
 

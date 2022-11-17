@@ -10,6 +10,7 @@ import java.time.Instant;
 @Builder
 @Data
 public class MvtStckDto {
+    Integer Id ;
     Instant DateMvt;
     BigDecimal quantity ;
     TypeMvtStk TypeMvt ;

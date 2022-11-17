@@ -8,6 +8,8 @@ import java.util.List;
 @Builder
 @Data
 public class CommandeClientDto {
+    Integer Id ;
+
     String code;
 
     Instant dateDeCommande;

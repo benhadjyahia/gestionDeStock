@@ -1,5 +1,6 @@
 package com.gestion.gestiondestock.model;
 
+import com.gestion.gestiondestock.dto.AdresseDto;
 import lombok.*;
 
 import javax.persistence.Embedded;
@@ -8,7 +9,6 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -23,4 +23,8 @@ String mail;
 String numTel;
 @OneToMany(mappedBy = "client")
 List <CommandeClient> commandeClients;
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
 }

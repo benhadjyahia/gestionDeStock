@@ -8,6 +8,7 @@ import java.util.List;
 @Builder
 @Data
 public class EntrepriseDto {
+    Integer Id ;
     String nom ;
     String Desciption ;
     AdresseDto adresse ;

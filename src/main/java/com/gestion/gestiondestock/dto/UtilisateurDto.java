@@ -15,6 +15,7 @@ import java.util.List;
 @Builder
 @Data
 public class UtilisateurDto {
+    Integer Id ;
     String nom ;
     String prenom;
     Adresse adresse;

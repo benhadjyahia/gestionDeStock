@@ -9,6 +9,7 @@ import java.util.List;
 @Builder
 @Data
 public class FournisseurDto {
+    Integer Id ;
     String nom ;
     String prenom;
 

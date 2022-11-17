@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @Builder
 @Data
 public class LigneCommandeClientDto {
+    Integer Id ;
     BigDecimal quantity ;
 
     BigDecimal prixUnitaire ;
