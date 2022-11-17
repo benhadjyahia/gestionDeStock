@@ -17,10 +17,12 @@ public class AbstractEntity implements Serializable {
     @Id
     @GeneratedValue
     Integer Id ;
+
     @CreatedDate
     @Column(name = "createDate",nullable = false)
     @JsonIgnore
     Instant createDate;
+    
     @LastModifiedDate
     @Column(name = "lastUpdateDate")
     @JsonIgnore

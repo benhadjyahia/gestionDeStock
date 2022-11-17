@@ -10,7 +10,6 @@ import javax.persistence.Embeddable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @Embeddable
 public class Adresse {
     private  String adresse1;

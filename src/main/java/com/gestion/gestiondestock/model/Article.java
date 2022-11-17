@@ -1,9 +1,6 @@
 package com.gestion.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -11,6 +8,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -22,7 +20,7 @@ public class Article extends AbstractEntity {
     String codeArticle ;
     String designation;
     BigDecimal prixUnitaireHt;
-    BigDecimal tauwTva;
+    BigDecimal tauxTva;
     BigDecimal prixUnitaireTtc ;
     String photo ;
     @ManyToOne
