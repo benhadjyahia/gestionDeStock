@@ -1,11 +1,9 @@
 package com.gestion.gestiondestock.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 
@@ -15,18 +13,35 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 public class Utilisateur extends AbstractEntity{
-    String nom ;
-    String prenom;
+
+    @Column(name = "nom")
+    private String nom;
+
+    @Column(name = "prenom")
+    private String prenom;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "datedenaissance")
+    private Instant dateDeNaissance;
+
+    @Column(name = "motdepasse")
+    private String moteDePasse;
+
     @Embedded
-    Adresse adresse;
-    String photo;
-    String mail;
-    String numTel;
-    String password;
-    Instant DateDeNaissance ;
+    private Adresse adresse;
+
+    @Column(name = "photo")
+    private String photo;
+
     @ManyToOne
-    Entreprise entreprise ;
-    @OneToMany(mappedBy = "utilisateur")
-    List<Roles> roles ;
+    @JoinColumn(name = "identreprise")
+    private Entreprise entreprise;
+
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @JsonIgnore
+    private List<Roles> roles;
 
 }

@@ -2,8 +2,7 @@ package com.gestion.gestiondestock.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -13,10 +12,25 @@ import java.time.Instant;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 public class MvtStk extends AbstractEntity{
-    Instant DateMvt;
-            BigDecimal quantity ;
-            TypeMvtStk TypeMvt ;
+    @Column(name = "datemvt")
+    private Instant dateMvt;
+
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
     @ManyToOne
-    Article article ;
+    @JoinColumn(name = "idarticle")
+    private Article article;
+
+    @Column(name = "typemvt")
+    @Enumerated(EnumType.STRING)
+    private TypeMvtStk typeMvt;
+
+    @Column(name = "sourcemvt")
+    @Enumerated(EnumType.STRING)
+    private SourceMvtStk sourceMvt;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
 }

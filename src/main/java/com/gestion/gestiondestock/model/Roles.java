@@ -2,7 +2,9 @@ package com.gestion.gestiondestock.model;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Data
@@ -11,8 +13,12 @@ import javax.persistence.ManyToOne;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 public class Roles extends AbstractEntity{
-    String roleName ;
+    @Column(name = "rolename")
+    private String roleName;
+
     @ManyToOne
-    Utilisateur utilisateur;
+    @JoinColumn(name = "idutilisateur")
+    private Utilisateur utilisateur;
+
 
 }

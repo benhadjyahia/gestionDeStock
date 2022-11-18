@@ -16,16 +16,15 @@ import java.time.Instant;
 public class AbstractEntity implements Serializable {
     @Id
     @GeneratedValue
-    Integer Id ;
+    private Integer id;
 
     @CreatedDate
-    @Column(name = "createDate",nullable = false)
-    @JsonIgnore
-    Instant createDate;
-    
+    @Column(name = "creationDate", nullable = false, updatable = false)
+    private Instant creationDate;
+
     @LastModifiedDate
-    @Column(name = "lastUpdateDate")
-    @JsonIgnore
-    Instant lastUpdateDate;
+    @Column(name = "lastModifiedDate")
+    private Instant lastModifiedDate;
+
 
 }

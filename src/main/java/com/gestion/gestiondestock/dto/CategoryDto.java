@@ -9,31 +9,44 @@ import java.util.List;
 @Builder
 @Data
 public class CategoryDto {
-    Integer Id ;
-    String code ;
-    String designation;
-    @JsonIgnore
-    List<ArticleDto> articles ;
+    private Integer id;
 
-    public  CategoryDto fromEntity(Category category){
-        if (category == null){
-            return  null;
+    private String code;
+
+    private String designation;
+
+    private Integer idEntreprise;
+
+    @JsonIgnore
+    private List<ArticleDto> articles;
+
+    public static CategoryDto fromEntity(Category category) {
+        if (category == null) {
+            return null;
+            // TODO throw an exception
         }
-       return CategoryDto.builder()
+
+        return CategoryDto.builder()
+                .id(category.getId())
                 .code(category.getCode())
-                .Id(category.getId())
                 .designation(category.getDesignation())
+                .idEntreprise(category.getIdEntreprise())
                 .build();
     }
-    public  Category toEntity(CategoryDto categoryDto){
-        if (categoryDto == null){
-            return  null;
+
+    public static Category toEntity(CategoryDto categoryDto) {
+        if (categoryDto == null) {
+            return null;
+            // TODO throw an exception
         }
+
         Category category = new Category();
         category.setId(categoryDto.getId());
         category.setCode(categoryDto.getCode());
         category.setDesignation(categoryDto.getDesignation());
-        return  category;
+        category.setIdEntreprise(categoryDto.getIdEntreprise());
+
+        return category;
     }
 
 
